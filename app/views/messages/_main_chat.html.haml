@@ -1,0 +1,25 @@
+.Main-chat
+  .top
+    .member
+      .test test
+      .mem
+        .men-name member:
+        .men1 unko
+    .botan 
+      = link_to 'Edit','#',class: "botan-edit"
+      
+  .message_field
+    .message_box
+      .message_natime
+        .message_name unti
+        .message_time 2020
+      .message_content ohayou
+
+  .footer
+    %form{}
+      .form-text
+        %input.text-input{ placeholder: "type a message", type: "text"}
+        %label.input-image{ type: "hidden", for: "text-image"}      
+          = icon('fas','image',class: "icon1")
+          %input{type: "file",id: "text-image",class: "input-none"}
+      %input.send-put{ value: "send", type: "submit"}
