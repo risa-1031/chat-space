@@ -169,11 +169,12 @@
   height: 90px;
   padding: 20px 50px 20px 40px;
   box-sizing: border-box;
+  form{
+    display: flex;
+  }
 }
 
-form{
-  display: flex;
-}
+
 
 .form-text{
   display: flex;
