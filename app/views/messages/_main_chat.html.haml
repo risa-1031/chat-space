@@ -1,25 +1,27 @@
 .Main-chat
   .top
     .member
-      .test test
+      .test
+        = @group.name      #@group(:current_user)
       .mem
-        .men-name member:
-        .men1 unko
+        member:
+        - @group.users.each do |user|
+          .men1
+            = user.name
+          
+          
+
     .botan 
-      = link_to 'Edit','#',class: "botan-edit"
+      = link_to 'Edit', edit_group_path(@group), class: "botan-edit"
       
   .message_field
-    .message_box
-      .message_natime
-        .message_name unti
-        .message_time 2020
-      .message_content ohayou
+    = render @messages
 
   .footer
-    %form{}
+    = form_with model: [@group, @message], html: {class: "form"}, local: true do |f|
       .form-text
-        %input.text-input{ placeholder: "type a message", type: "text"}
-        %label.input-image{ type: "hidden", for: "text-image"}      
-          = icon('fas','image',class: "icon1")
-          %input{type: "file",id: "text-image",class: "input-none"}
-      %input.send-put{ value: "send", type: "submit"}
+        = f.text_field :content, class: 'text-input', placeholder: "type a message"
+        = f.label :image, class: 'input-image' do
+          = icon('far', 'image', class: 'icon1')
+          = f.file_field :image, class: 'input-none'
+      = f.submit 'Send', class: 'send-put'
