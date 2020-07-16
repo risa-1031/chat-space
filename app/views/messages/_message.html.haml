@@ -1,0 +1,11 @@
+.message_box
+  .message_natime
+    .message_name
+      = message.user.name
+    .message_time
+      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+  .message_content
+    - if message.content.present?
+      %p.content-message
+        = message.content
+    = image_tag message.image.url, class: 'image-message' if message.image.present?
