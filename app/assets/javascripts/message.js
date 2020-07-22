@@ -54,6 +54,7 @@ $(function(){
     })
     .done(function(data){
       let html = buildHTML(data)
+      debugger
       $('.message_field').append(html);
       $('.message_field').animate({ scrollTop: $('.message_field')[0].scrollHeight});
       $('form')[0].reset();
