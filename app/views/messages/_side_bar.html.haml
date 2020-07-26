@@ -1,7 +1,8 @@
 .Side-ba
   .header
     .obset
-      .object unko
+      .object
+        = current_user.name
       .iset 
         .icon
           = link_to new_group_path(current_user) do
